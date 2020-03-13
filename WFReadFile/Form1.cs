@@ -183,10 +183,10 @@ namespace WFReadFile
             Dictionary<string, string> Parameters = new Dictionary<string, string>();
             foreach (SqlParameter parms in cmd.Parameters)
             {
-                Parameters.Add(parms.ParameterName, parms.ParameterName);
+                Parameters.Add(parms.ParameterName, parms.ParameterName); //2 
             }
-            Parameters = Parameters.OrderByDescending(o => o.Key).ToDictionary(o => o.Key, p => p.Value);
-
+            Parameters = Parameters.OrderByDescending(o => o.Key).ToDictionary(o => o.Key, p => p.Value); //1
+             
             foreach (KeyValuePair<string, string> item in Parameters)
             {
                 SqlParameter parms = cmd.Parameters[item.Key];
